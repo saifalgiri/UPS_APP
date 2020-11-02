@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\netcoreapp3.1\appsettings.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\netcoreapp3.1\UPS_APP.deps.json" />
     <Content Include="bin\Debug\netcoreapp3.1\UPS_APP.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\netcoreapp3.1\UPS_APP.runtimeconfig.json" />
