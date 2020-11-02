@@ -1,0 +1,55 @@
+﻿<Window x:Class="UPS_APP.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UPS_APP"
+        mc:Ignorable="d"
+        Title="Registration" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <RoutedUICommand x:Key="AddCommandHandler" Text="Add"/>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource AddCommandHandler}" Executed="AddCommandHandler"/>
+
+    </Window.CommandBindings>
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="addUserGrid" HorizontalAlignment="Center" Margin="0,5,0,0" Visibility="Visible" VerticalAlignment="Top" 
+              Background="AntiqueWhite" Width="335" Height="178">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="126"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Label Content="Name:" Style="{StaticResource Label}" Height="24" Margin="3,0,0,0" Width="79"/>
+            <TextBox x:Name="NameTextBox" Style="{StaticResource CustTextBox}"
+                  Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Label Content="Email:" Grid.Row="1" Style="{StaticResource Label}" Height="24" Margin="3,0,0,0" Width="98"/>
+            <TextBox x:Name="EmailTextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"
+                  Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Label Content="Gender:" Grid.Row="2" Style="{StaticResource Label}" Height="24" Margin="3,0,0,0" Width="89"/>
+            <TextBox x:Name="GenderTextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"
+                  Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Label Content="Status:" Grid.Column="0" Grid.Row="3" Style="{StaticResource Label}" Height="24" Margin="3,0,0,0" Width="89"/>
+            <TextBox x:Name="StatusTextBox" Grid.Row="3" Style="{StaticResource CustTextBox}"
+                  Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" HorizontalAlignment="Left"/>
+
+            <Button Name="SaveBtn" Content="Save" Grid.Row="4"  Command="{StaticResource AddCommandHandler}" Width="90"  Height="30" FontSize="11" Style="{StaticResource NavButton}" Margin="10,2,102,-3" Grid.RowSpan="3"/>
+            <Label x:Name="lblMessage" Grid.Row="4" Width="160" Grid.Column="1" Visibility="Collapsed" />
+        </Grid>
+
+    </Grid>
+</Window>
